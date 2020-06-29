@@ -1,0 +1,29 @@
+note over browser:
+user inputs data and presses 'save',
+browser sends the form to server 
+end note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_notes
+note over server:
+server updates the database,
+by adding the new note to '/notes'
+end note
+server-->browser: Redirct to https://fullstack-exampleapp.herokuapp.com/notes
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "the note entered by user", date: "2020-06-29" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note

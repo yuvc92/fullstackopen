@@ -1,0 +1,11 @@
+note over browser:
+user inputs note and presses 'save'
+end note
+note over browser:
+browser rerenders page with the new note
+end note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/spa/new_note_spa
+server-->browser: new_note_spa
+note over browser:
+browser writes on console {"message":"note created"}
+end note
